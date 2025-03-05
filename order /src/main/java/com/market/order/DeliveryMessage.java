@@ -15,7 +15,7 @@ public class DeliveryMessage {
     private UUID orderId;
     private UUID paymentId;
 
-    private String UserId;
+    private String userId;
 
     private Integer productId;
     private Integer productQuantity;
