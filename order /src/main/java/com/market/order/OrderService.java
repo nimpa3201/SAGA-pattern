@@ -37,4 +37,8 @@ public class OrderService {
     }
 
 
+    public void rollbackOrder(DeliveryMessage deliveryMessage) {
+        Order order = orderStore.get(deliveryMessage.getOrderId());
+        order.cancelOrder(deliveryMessage.getErrorType());
+    }
 }

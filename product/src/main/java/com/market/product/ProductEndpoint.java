@@ -19,5 +19,11 @@ public class ProductEndpoint {
         productService.reduceProduceAmount(deliveryMessage);
     }
 
+    @RabbitListener(queues="${message.queue.err.product}") // 어떤 큐를 보는가
+    public void receiveErrorMessage(DeliveryMessage deliveryMessage){
+        log.info("ERROR RECEIVE !!!");
+        productService.rollbackProduct(deliveryMessage);
+    }
+
 
 }
